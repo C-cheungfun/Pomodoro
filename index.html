@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Aesthetic Pomodoro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="timer-card">
+        
+        <div class="mode-toggle-bar">
+            <button class="mode-btn active" data-mode="pomodoro">Pomodoro</button>
+            <button class="mode-btn" data-mode="shortBreak">Short Break</button>
+            <button class="mode-btn" data-mode="longBreak">Long Break</button>
+        </div>
+
+        <div class="progress-circle-outer">
+            <svg class="progress-ring" viewBox="0 0 250 250" aria-hidden="true">
+                <circle class="progress-ring-bg" cx="125" cy="125" r="115" fill="none" stroke-width="6"></circle>
+                <circle id="progress-ring-fill" cx="125" cy="125" r="115" fill="none" stroke-width="6" stroke-linecap="round"></circle>
+            </svg>
+            <div class="progress-circle-inner">
+                <div id="time-left">25:00</div>
+                <div id="timer-label">Pomodoro</div>
+            </div>
+        </div>
+
+        <div class="controls-deck">
+            <button id="reset" class="control-btn accent-secondary">Reset</button>
+            <button id="start-stop" class="control-btn accent-primary">Start</button>
+        </div>
+
+        <div class="stats-panel">
+            <div class="stat-item">
+                <span class="stat-label">Completed</span>
+                <strong id="sessions-completed">0</strong>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-label">Focus Time</span>
+                <strong id="focus-minutes">0m</strong>
+            </div>
+        </div>
+
+    </div>
+
+    <button id="settings-btn" aria-label="Open Workspace Settings">⚙️</button>
+
+    <div id="settings-modal" class="modal-overlay">
+        <div class="modal-window">
+            
+            <div class="modal-header">
+                <h2>Customize Workspace</h2>
+                <button id="close-modal" class="close-x-btn" aria-label="Close Settings Panel">&times;</button>
+            </div>
+            
+            <div class="settings-group">
+                <h3><span class="section-icon">🎨</span>Theme Color</h3>
+                <div class="color-picker-row">
+                    <button class="color-circle active" data-theme="coral" aria-label="Select Coral Theme Profile">✓</button>
+                    <button class="color-circle" data-theme="blue" aria-label="Select Deep Sea Blue Profile"></button>
+                    <button class="color-circle" data-theme="green" aria-label="Select Botanical Green Profile"></button>
+                    <button class="color-circle" data-theme="sand" aria-label="Select Warm Desert Sand Profile"></button>
+                    <button class="color-circle" data-theme="purple" aria-label="Select Twilight Lavender Profile"></button>
+                    <button class="color-circle" data-theme="teal" aria-label="Select Minimalist Mint Teal Profile"></button>
+                </div>
+            </div>
+
+            <div class="settings-group duration-selectors">
+                <h3><span class="section-icon">⏱</span>Timer Duration</h3>
+                
+                <div class="duration-row">
+                    <span class="row-title">Pomodoro</span>
+                    <div class="stepper-controls">
+                        <button class="step-btn" data-action="minus" data-target="pomodoro" type="button">−</button>
+                        <span id="display-pref-pomodoro" class="step-value">25</span>
+                        <button class="step-btn" data-action="plus" data-target="pomodoro" type="button">+</button>
+                    </div>
+                </div>
+
+                <div class="duration-row">
+                    <span class="row-title">Short Break</span>
+                    <div class="stepper-controls">
+                        <button class="step-btn" data-action="minus" data-target="shortBreak" type="button">−</button>
+                        <span id="display-pref-short" class="step-value">5</span>
+                        <button class="step-btn" data-action="plus" data-target="shortBreak" type="button">+</button>
+                    </div>
+                </div>
+
+                <div class="duration-row">
+                    <span class="row-title">Long Break</span>
+                    <div class="stepper-controls">
+                        <button class="step-btn" data-action="minus" data-target="longBreak" type="button">−</button>
+                        <span id="display-pref-long" class="step-value">15</span>
+                        <button class="step-btn" data-action="plus" data-target="longBreak" type="button">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-group sound-selectors">
+                <h3><span class="section-icon">🎵</span>Ambient Soundscapes</h3>
+                <div class="sound-panel">
+                    <button class="sound-btn" data-sound="none">🔇 None</button>
+                    <button class="sound-btn" data-sound="rain">🌧️ Rain</button>
+                    <button class="sound-btn" data-sound="cafe">☕ Cafe</button>
+                    <button class="sound-btn" data-sound="ocean">🌊 Ocean</button>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button id="save-settings" class="apply-btn">Apply Configuration</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
